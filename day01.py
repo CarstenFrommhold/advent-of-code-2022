@@ -1,5 +1,6 @@
-with open("input_01.txt", "r") as f:
-    data = f.read().replace('\n', '-').split("-")
+import utils
+
+data = utils.day_puzzle_to_list("01")
 
 elfs = []
 elf = []

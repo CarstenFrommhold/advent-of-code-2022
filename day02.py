@@ -1,4 +1,4 @@
-with open("input_02.txt", "r") as f:
+with open("puzzles/day02.txt", "r") as f:
     data = f.read().replace(' ', "x").replace('\n', '-').split("-")
 
 points_shape = {"X": 1, "Y": 2, "Z": 3}
@@ -21,10 +21,10 @@ outcomes = {
     ("C", "Z"): 3,
 }
 
-sum_ = []
+to_be_summed = []
 for game in data:
     opponent, me = game.split("x")
     points = points_shape.get(me) + outcomes.get((opponent, me))
-    sum_.append(points)
+    to_be_summed.append(points)
 
-print(sum(sum_))
+print(sum(to_be_summed))
