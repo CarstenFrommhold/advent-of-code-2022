@@ -20,7 +20,7 @@ stacks = {
     7: ['D', 'H', 'G', 'M', 'R'],
     8: ['H', 'N', 'M', 'V', 'Z', 'D'],
     9: ['G', 'N', 'F', 'H']
-}
+}  # better parse then type in directly -> error source (!)
 
 with open("puzzles/day05_moves.txt", "r") as f:
     moves = f.read().replace('\n', 'xxx').split("xxx")
@@ -42,7 +42,7 @@ for no, move in enumerate(moves, 1):
         print(n, from_, to)
         print(stacks)
     to_be_moved = stacks[from_][-n:].copy()
-    # to_be_moved.reverse()  # not for Pt Two
+    # to_be_moved.reverse()  # remove for Pt Two
     stacks[to] = stacks[to] + to_be_moved
     stacks[from_] = stacks[from_][:-n]
 
