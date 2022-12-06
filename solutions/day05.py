@@ -1,15 +1,3 @@
-"""
-[F]         [L]     [M]            
-[T]     [H] [V] [G] [V]            
-[N]     [T] [D] [R] [N]     [D]    
-[Z]     [B] [C] [P] [B] [R] [Z]    
-[M]     [J] [N] [M] [F] [M] [V] [H]
-[G] [J] [L] [J] [S] [C] [G] [M] [F]
-[H] [W] [V] [P] [W] [H] [H] [N] [N]
-[J] [V] [G] [B] [F] [G] [D] [H] [G]
- 1   2   3   4   5   6   7   8   9 
-"""
-
 stacks = {
     1: ['J', 'H', 'G', 'M', 'Z', 'N', 'T', 'F'],
     2: ['V', 'W', 'J'],
@@ -22,15 +10,8 @@ stacks = {
     9: ['G', 'N', 'F', 'H']
 }  # better parse then type in directly -> error source (!)
 
-with open("puzzles/day05_moves.txt", "r") as f:
+with open("../puzzles/day05_moves.txt", "r") as f:
     moves = f.read().replace('\n', 'xxx').split("xxx")
-
-# stacks = {
-# 1: ["Z", "N"], 2:["M", "C", "D"], 3:["P"]
-# }
-
-# with open("puzzles/day05_example_moves.txt", "r") as f:
-#     moves = f.read().replace('\n', 'xxx').split("xxx")
 
 moves = [move.replace("move ", "").replace(" from ", "-").replace(" to ", "-") for move in moves]
 debug = False

@@ -1,14 +1,8 @@
-with open("puzzles/day02.txt", "r") as f:
+with open("../puzzles/day02.txt", "r") as f:
     data = f.read().replace(' ', "x").replace('\n', '-').split("-")
 
 points_shape = {"X": 1, "Y": 2, "Z": 3}
 
-"""
-Rock A, X
-Paper B, Y
-Scissor C, Z
-Outcomes: 6, 3, 0
-"""
 outcomes = {
     ("A", "X"): 3,
     ("A", "Y"): 6,

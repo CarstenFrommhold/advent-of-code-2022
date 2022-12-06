@@ -1,18 +1,8 @@
-with open("puzzles/day02.txt_02.txt", "r") as f:
+with open("../puzzles/day02.txt", "r") as f:
     data = f.read().replace(' ', "x").replace('\n', '-').split("-")
 
 points_shape = {"A": 1, "B": 2, "C": 3}
 
-"""
-Rock A, 
-Paper B, Y
-Scissor C, Z
-Outcomes: 6, 3, 0
-
-X -> I need to loose
-Y -> I need to draw
-Z -> I need to win
-"""
 strategy = {
     ("A", "X"): "C",
     ("A", "Y"): "A",
