@@ -13,5 +13,8 @@ for entry in data:
 
 sum_ = [sum(elf) for elf in elfs]
 sum_.sort()
-print(sum_[-3:])
-print(sum(sum_[-3:]))
+pt1 = sum_[-3:]
+pt2 = sum(sum_[-3:])
+
+print("Part1:", pt1)
+print("Part2:", pt2)

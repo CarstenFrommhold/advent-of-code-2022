@@ -15,16 +15,25 @@ with open("../puzzles/day05_moves.txt", "r") as f:
 
 moves = [move.replace("move ", "").replace(" from ", "-").replace(" to ", "-") for move in moves]
 debug = False
-for no, move in enumerate(moves, 1):
-    n, from_, to = move.split("-")
-    n, from_, to = int(n), int(from_), int(to)
-    if debug:
-        print(no)
-        print(n, from_, to)
-        print(stacks)
-    to_be_moved = stacks[from_][-n:].copy()
-    # to_be_moved.reverse()  # remove for Pt Two
-    stacks[to] = stacks[to] + to_be_moved
-    stacks[from_] = stacks[from_][:-n]
 
-print("".join([stack[-1] for stack in stacks.values()]))
+
+def solve(pt):
+    for no, move in enumerate(moves, 1):
+        n, from_, to = move.split("-")
+        n, from_, to = int(n), int(from_), int(to)
+        if debug:
+            print(no)
+            print(n, from_, to)
+            print(stacks)
+        to_be_moved = stacks[from_][-n:].copy()
+        if pt == 1:
+            to_be_moved.reverse()  # remove for Pt Two
+        stacks[to] = stacks[to] + to_be_moved
+        stacks[from_] = stacks[from_][:-n]
+    return "".join([stack[-1] for stack in stacks.values()])
+
+
+pt1 = solve(1)
+pt2 = solve(2)
+print("Part1:", pt1)
+print("Part2:", pt2)

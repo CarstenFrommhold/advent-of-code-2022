@@ -21,7 +21,7 @@ for rucksack in data:
     shared = next(iter(shared))
     to_be_summed.append(get_priority(shared))
 
-print(sum(to_be_summed))
+pt1 = sum(to_be_summed)
 
 
 # Pt Two
@@ -32,4 +32,7 @@ for elf_group in np.array_split(data, len(data)/3):
     shared = next(iter(shared))
     to_be_summed.append(get_priority(shared))
 
-print(sum(to_be_summed))
+pt2 = sum(to_be_summed)
+
+print("Part1:", pt1)
+print("Part2:", pt2)
