@@ -16,6 +16,6 @@ while not received:
         received = True
     else:
         start += 1
-        end +=1
+        end += 1
 
 print(end)
