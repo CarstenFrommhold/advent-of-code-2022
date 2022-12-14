@@ -2,22 +2,7 @@ import utils
 from dataclasses import dataclass
 from typing import Tuple, List
 
-data = utils.day_puzzle_to_list("14bsp")
-
-min_x = 500
-max_x = 500
-max_y = 0
-for p in data:
-    cords = [eval(c) for c in p.split(" -> ")]
-    for pixel in cords:
-        x: int = pixel[0]
-        y: int = pixel[1]
-        min_x = min(x, min_x)
-        max_x = max(x, max_x)
-        max_y = max(y, max_y)
-
-print(min_x, max_x, max_y)
-data.append(f'{min_x - 50},{max_y + 2} -> {max_x + 50},{max_y + 2}')
+data = utils.day_puzzle_to_list("14")
 
 
 @ dataclass
