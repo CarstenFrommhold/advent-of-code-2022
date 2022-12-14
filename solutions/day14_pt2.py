@@ -4,6 +4,8 @@ from typing import Tuple, List
 
 data = utils.day_puzzle_to_list("14")
 
+
+""" PT2: Append 'Infinite line at the bottom' """
 min_x = 500
 max_x = 500
 max_y = 0
@@ -15,8 +17,6 @@ for p in data:
         min_x = min(x, min_x)
         max_x = max(x, max_x)
         max_y = max(y, max_y)
-
-print(min_x, max_x, max_y)
 data.append(f'{min_x - 300},{max_y + 2} -> {max_x + 300},{max_y + 2}')
 
 
@@ -93,8 +93,8 @@ def get_status(candidate: Cord, grid: List[Cord]) -> str:
 
 def set_snowflake(candidate: Cord, grid: List[Cord]) -> List[Cord]:
     """ snow flake comes from above @ ()"""
-    # if get_status(candidate, grid) in (["L, R, U"]):
-    #     raise Exception("No place for any flakes anymore.")
+    if get_status(candidate, grid) in (["L, R, U"]):
+        raise Exception("No place for any flakes anymore.")
 
     under = Cord(candidate.x, candidate.y + 1)
     left_under = Cord(candidate.x - 1, candidate.y + 1)
@@ -111,7 +111,7 @@ def set_snowflake(candidate: Cord, grid: List[Cord]) -> List[Cord]:
         return grid
 
 
-start_ = Cord(500 - min_x + 1, 0) # new!
+start_ = Cord(500 - min_x + 1, 0)  # 1 UP COMPARED TO PT1
 counter = 0
 go_on = True
 while go_on:
@@ -120,7 +120,7 @@ while go_on:
     if get_status(start_, grid) == "o":
         go_on = False
 
-pt1 = counter
-print("Part 1:", pt1)
+pt2 = counter
+print("Part 1:", pt2)
 print_grid(grid)
 
