@@ -54,7 +54,6 @@ for p in data:
                 cords_filled.append(between)
 
 cords_filled = [Cord(c.x - min_x + 1, c.y) for c in cords_filled]
-print(cords_filled)
 
 # Build Grid
 len_y = max_y
@@ -67,11 +66,10 @@ grid.append(["U" for _ in range(len_x + 2)])
 for c in cords_filled:
     grid[c.y][c.x] = "#"
 
-for row in grid:
-    print(row)
 
-print(len(grid))
-print(len(grid[1]))
+def print_grid(grid: List[Cord]):
+    for row in grid:
+        print(row)
 
 
 def get_status(candidate: Cord, grid: List[Cord]) -> str:
@@ -106,10 +104,7 @@ while go_on:
         grid = set_snowflake(start_, grid)
         counter += 1
     except:
-        for row in grid:
-            print(row)
-        print("Done")
-        print(counter)
+        print_grid(grid)
         go_on = False
 
 pt1 = counter
