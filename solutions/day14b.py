@@ -2,7 +2,7 @@ import utils
 from dataclasses import dataclass
 from typing import Tuple, List
 
-data = utils.day_puzzle_to_list("14bsp")
+data = utils.day_puzzle_to_list("14")
 
 min_x = 500
 max_x = 500
@@ -17,7 +17,7 @@ for p in data:
         max_y = max(y, max_y)
 
 print(min_x, max_x, max_y)
-data.append(f'{min_x - 50},{max_y + 2} -> {max_x + 50},{max_y + 2}')
+data.append(f'{min_x - 300},{max_y + 2} -> {max_x + 300},{max_y + 2}')
 
 
 @ dataclass
@@ -93,8 +93,8 @@ def get_status(candidate: Cord, grid: List[Cord]) -> str:
 
 def set_snowflake(candidate: Cord, grid: List[Cord]) -> List[Cord]:
     """ snow flake comes from above @ ()"""
-    if get_status(candidate, grid) in (["L, R, U"]):
-        raise Exception("No place for any flakes anymore.")
+    # if get_status(candidate, grid) in (["L, R, U"]):
+    #     raise Exception("No place for any flakes anymore.")
 
     under = Cord(candidate.x, candidate.y + 1)
     left_under = Cord(candidate.x - 1, candidate.y + 1)
@@ -111,17 +111,16 @@ def set_snowflake(candidate: Cord, grid: List[Cord]) -> List[Cord]:
         return grid
 
 
-start_ = Cord(500 - min_x + 1, 1)
+start_ = Cord(500 - min_x + 1, 0) # new!
 counter = 0
 go_on = True
 while go_on:
-    try:
-        grid = set_snowflake(start_, grid)
-        counter += 1
-    except:
-        print_grid(grid)
+    grid = set_snowflake(start_, grid)
+    counter += 1
+    if get_status(start_, grid) == "o":
         go_on = False
 
 pt1 = counter
 print("Part 1:", pt1)
+print_grid(grid)
 
