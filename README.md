@@ -1,6 +1,6 @@
 # Advent of code 2022
 
-Collected 30 stars but then gave up... :-) 
+...
 
 ## Notes 
 
